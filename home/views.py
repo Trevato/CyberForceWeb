@@ -1,9 +1,19 @@
 from django.shortcuts import render
 from django.conf import settings
+from django.contrib.auth import authenticate, login
+
 
 # Create your views here.
 
 def login(request):
+    user = authenticate(username=request.REQUEST.get('Username'), password=request.REQUEST.get('password'))
+    # handle error cases, inactive users, ...
+
+    login_return = login(request, user)
+
+    if login_return == None:
+        print('User not in database.')
+
     return render(request, 'login.html')
 
 def mail(request):
