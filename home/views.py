@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login
 # Create your views here.
 
 def login(request):
-    user = authenticate(username=request.REQUEST.get('Username'), password=request.REQUEST.get('password'))
+    user = authenticate(username=request.REQUEST.get('username'), password=request.REQUEST.get('password'))
     # handle error cases, inactive users, ...
 
     login_return = login(request, user)

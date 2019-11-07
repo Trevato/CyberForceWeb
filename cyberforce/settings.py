@@ -19,8 +19,13 @@ LDAP_STRING = "cn=Blueteam2,cn=Users,dc=cybatiworks,dc=com"
 AUTH_LDAP_BIND_DN = "cn=Blueteam2,cn=Users,dc=cybatiworks,dc=com"
 AUTH_LDAP_BIND_PASSWORD = ""
 AUTH_LDAP_USER_SEARCH = LDAPSearch(
-    "ou=users,dc=example,dc=com", ldap.SCOPE_SUBTREE, "(uid=%(user)s)"
+    "cn=Users,dc=cybatiworks,dc=com", ldap.SCOPE_SUBTREE, "(uid=%(user)s)"
 )
+
+AUTHENTICATION_BACKENDS = [
+                            'django_auth_ldap.backend.LDAPBackend',
+                            'django.contrib.auth.backends.ModelBackend',
+                            ]
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -59,6 +64,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+MIDDLEWARE_CLASSES = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+)
 
 ROOT_URLCONF = 'cyberforce.urls'
 
@@ -109,11 +119,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-AUTHENTICATION_BACKENDS = [
-                            'django_auth_ldap.backend.LDAPBackend',
-                            'django.contrib.auth.backends.ModelBackend',
-                            ]
 
 LOGGING = {
     "version": 1,
