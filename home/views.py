@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
 from django.contrib.auth import authenticate, login
 
@@ -6,10 +6,15 @@ from django.contrib.auth import authenticate, login
 # Create your views here.
 
 def login_user(request):
-    user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
+    user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
     # handle error cases, inactive users, ...
 
-    login_return = login(request, user)
+    if user is not None:
+        login_return = login(request, user)
+        #Success go to Home or something
+    else:
+        print('Login Failed')
+        #Failed. Send message and log?
 
     if login_return == None:
         print('User not in database.')
@@ -17,6 +22,9 @@ def login_user(request):
     return render(request, 'login.html')
 
 def mail(request):
+    if not request.user.is_authenticated:
+        return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
+
     context = {
         'ftpsrv': '10.0.%s.8' % settings.TEAM
     }
@@ -24,6 +32,9 @@ def mail(request):
 
 
 def hmi(request):
+    if not request.user.is_authenticated:
+        return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
+
     context = {
         'hmi': '10.0.%s.9' % settings.TEAM,
         'ftpsrv': '10.0.%s.8' % settings.TEAM
@@ -32,6 +43,9 @@ def hmi(request):
 
 
 def notes(request):
+    if not request.user.is_authenticated:
+        return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
+
     context = {
         'ftpsrv': '10.0.%s.8' % settings.TEAM,
         'myip': '10.0.%s.6' % settings.TEAM
@@ -40,6 +54,9 @@ def notes(request):
 
 
 def files(request):
+    if not request.user.is_authenticated:
+        return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
+
     context = {
         'ftpsrv': '10.0.%s.8' % settings.TEAM
     }
@@ -47,6 +64,9 @@ def files(request):
 
 
 def index(request):
+    if not request.user.is_authenticated:
+        return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
+
     context = {
         'ftpsrv': '10.0.%s.8' % settings.TEAM
     }
