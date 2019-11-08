@@ -146,7 +146,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/home'
+LOGIN_REDIRECT_URL = '/login'
 
 from netifaces import AF_INET
 import netifaces as ni
