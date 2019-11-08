@@ -5,7 +5,7 @@
     <body>
         {{state}}
         <form action="" method="post"> {% csrf_token %}
-            Email address: <input type="text" name="email" value="{{ username }}" />
+            Username: <input type="text" name="username" value="{{ username }}" />
             Password: <input type="password" name="password" value="" />
             <input type="submit" value="Log in" />
         </form>
