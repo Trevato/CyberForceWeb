@@ -14,7 +14,7 @@ def login_user(request):
 
     if user is not None:
         login_return = login(request, user)
-        redirect('%s?next=%s' % (settings.HOME_REDIRECT_URL, RequestContext(request)))
+        return redirect('/home/')
         #Success go to Home or something
     else:
         print('Login Failed')
