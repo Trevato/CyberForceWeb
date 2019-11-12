@@ -15,19 +15,21 @@ import ldap
 from django_auth_ldap.config import LDAPSearch
 
 
-LDAP_STRING = "cn=Blueteam2,cn=Users,dc=cybatiworks,dc=com"
-AUTH_LDAP_BIND_DN = "CN=Users,DC=cybatiworks,DC=com"
-AUTH_LDAP_BIND_PASSWORD = ""
-AUTH_LDAP_USER_SEARCH = LDAPSearch(
-    "CN=Users,DC=cybatiworks,DC=com", ldap.SCOPE_SUBTREE, "(CN=%(user)s)"
-)
-
-AUTH_LDAP_SERVER_URI = ' ldap://ldap.cybatiworks.com'
+# LDAP_STRING = "cn=Blueteam2,cn=Users,dc=cybatiworks,dc=com"
+# AUTH_LDAP_BIND_DN = "CN=Users,DC=cybatiworks,DC=com"
+# AUTH_LDAP_BIND_PASSWORD = ""
+# AUTH_LDAP_USER_SEARCH = LDAPSearch(
+#     "CN=Users,DC=cybatiworks,DC=com", ldap.SCOPE_SUBTREE, "(cn=%(user)s)"
+# )
 
 AUTHENTICATION_BACKENDS = [
                             'django_auth_ldap.backend.LDAPBackend',
                             'django.contrib.auth.backends.ModelBackend',
                             ]
+
+AUTH_LDAP_SERVER_URI = ' ldap://ldap.cybatiworks.com'
+
+AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,cn=Users,dc=cybatiworks,dc=com"
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
