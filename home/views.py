@@ -23,6 +23,11 @@ def login_user(request):
 
     return render(request, 'login.html')
 
+def support(request):
+    if not request.user.is_authenticated:
+        return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
+    return render(request, 'support.html')
+
 def mail(request):
     if not request.user.is_authenticated:
         return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
