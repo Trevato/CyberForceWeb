@@ -16,7 +16,7 @@ from django_auth_ldap.config import LDAPSearch
 
 
 LDAP_STRING = "cn=Blueteam2,cn=Users,dc=cybatiworks,dc=com"
-AUTH_LDAP_BIND_DN = "cn=Blueteam2,cn=Users,dc=cybatiworks,dc=com"
+AUTH_LDAP_BIND_DN = "cn=Users,dc=cybatiworks,dc=com"
 AUTH_LDAP_BIND_PASSWORD = ""
 AUTH_LDAP_USER_SEARCH = LDAPSearch(
     "cn=Users,dc=cybatiworks,dc=com", ldap.SCOPE_SUBTREE, "(uid=%(user)s)"
