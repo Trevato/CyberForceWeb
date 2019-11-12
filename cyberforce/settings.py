@@ -29,7 +29,7 @@ AUTHENTICATION_BACKENDS = [
 
 AUTH_LDAP_SERVER_URI = ' ldap://ldap.cybatiworks.com'
 
-AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,cn=Users,dc=cybatiworks,dc=com"
+AUTH_LDAP_USER_DN_TEMPLATE = "cn=%(user)s,cn=Users,dc=cybatiworks,dc=com"
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -151,6 +151,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/login'
+HOME_REDIRECT_URL = '/home'
 
 from netifaces import AF_INET
 import netifaces as ni
