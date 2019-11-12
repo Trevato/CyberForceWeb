@@ -22,7 +22,7 @@ AUTH_LDAP_USER_SEARCH = LDAPSearch(
     "cn=Users,dc=cybatiworks,dc=com", ldap.SCOPE_SUBTREE, "(uid=%(user)s)"
 )
 
-AUTH_LDAP_SERVER_URI = 'ldaps://ldap.cybatiworks.com/'
+AUTH_LDAP_SERVER_URI = ' ldap://ldap.cybatiworks.com'
 
 AUTHENTICATION_BACKENDS = [
                             'django_auth_ldap.backend.LDAPBackend',
