@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.template import RequestContext
+from django.contrib import messages
+
 
 
 # Create your views here.
@@ -13,10 +15,10 @@ def login_user(request):
     login_return = None
 
     if user is not None:
-        login_return = login(request, user)
-        return redirect('/home/')
-        #Success go to Home or something
+        login(request, user)
+        return render(request, 'home.html')
     else:
+        messages.error(request, 'Login failed.')
         print('Login Failed')
         #Failed. Send message and log?
 
@@ -24,6 +26,10 @@ def login_user(request):
         print('User not in database.')
 
     return render(request, 'login.html')
+
+def logout_user(request):
+    logout(request)
+
 
 def support(request):
     if not request.user.is_authenticated:
