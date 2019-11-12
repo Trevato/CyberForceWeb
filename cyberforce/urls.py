@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^hmi', home.views.hmi),
     url(r'^notes', home.views.notes),
     url(r'^files', home.views.files),
+    url(r'^support', home.views.support),
     url(r'^login', home.views.login_user),
     url(r'^$', home.views.index),
 ]
