@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
 from django.contrib.auth import authenticate, login
+from django.template import RequestContext
 
 
 # Create your views here.
@@ -13,7 +14,7 @@ def login_user(request):
 
     if user is not None:
         login_return = login(request, user)
-        redirect('%s?next=%s' % (settings.HOME_REDIRECT_URL, request.path))
+        redirect('%s?next=%s' % (settings.HOME_REDIRECT_URL, RequestContext(request)))
         #Success go to Home or something
     else:
         print('Login Failed')
