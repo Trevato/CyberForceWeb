@@ -22,9 +22,6 @@ def login_user(request):
         print('Login Failed')
         #Failed. Send message and log?
 
-    if login_return == None:
-        print('User not in database.')
-
     return render(request, 'login.html')
 
 def logout_user(request):
