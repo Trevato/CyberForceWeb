@@ -12,13 +12,13 @@ def login_user(request):
     user = authenticate(request, username=request.POST.get('username'), password=request.POST.get('password'))
     # handle error cases, inactive users, ...
 
-    login_return = None
-
     if user is not None:
-        login(request, user)
+        try:
+            login(request, user)
+        except Exception:
+            messages.error(request, 'Login failed.')
         return render(request, 'home.html')
     else:
-        messages.error(request, 'Login failed.')
         print('Login Failed')
         #Failed. Send message and log?
 
