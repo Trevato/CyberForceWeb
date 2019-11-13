@@ -17,7 +17,10 @@ def login_user(request):
             login(request, user)
         except Exception:
             messages.error(request, 'Login failed.')
-        return render(request, 'home.html')
+        context = {
+            'ftpsrv': '10.0.%s.8' % settings.TEAM
+        }
+        return render(request, 'home.html', context)
     else:
         print('Login Failed')
         #Failed. Send message and log?
