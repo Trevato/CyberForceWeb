@@ -22,6 +22,8 @@ from django_auth_ldap.config import LDAPSearch
 #     "CN=Users,DC=cybatiworks,DC=com", ldap.SCOPE_SUBTREE, "(cn=%(user)s)"
 # )
 
+ldap.set_option(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_ALLOW)
+
 AUTHENTICATION_BACKENDS = [
                             'django_auth_ldap.backend.LDAPBackend',
                             'django.contrib.auth.backends.ModelBackend',
