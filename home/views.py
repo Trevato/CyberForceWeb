@@ -26,7 +26,7 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    return render(request, 'login.html')
+    return render(request, 'logout.html')
 
 
 def support(request):
