@@ -3,11 +3,13 @@ from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
 from django.template import RequestContext
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
 
 
 
 # Create your views here.
 
+@csrf_exempt
 def login_user(request):
     print('Login view.')
     user = authenticate(request, username=request.POST.get('username'), password=request.POST.get('password'))
