@@ -22,12 +22,8 @@ def login_user(request):
         context = {
             'ftpsrv': '10.0.%s.8' % settings.TEAM
         }
-<<<<<<< HEAD
         print('User logged in.')
         return render(request, 'files.html', context)
-=======
-        return render(request, 'home.html', context)
->>>>>>> parent of 4700f54... Added some print statements for debugging.
     else:
         print('Login Failed')
         #Failed. Send message and log?

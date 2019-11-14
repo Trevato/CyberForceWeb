@@ -4,8 +4,7 @@
     </head>
     <body>
         {{state}}
-        <form action="" method="post">
-        {% csrf_token %}
+        <form action="" method="post"> {% csrf_token %}
             Username: <input type="text" name="username" value="{{ username }}" />
             Password: <input type="password" name="password" value="" />
             <input type="submit" value="Log in" />

@@ -108,7 +108,6 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-CSRF_USE_SESSIONS = True
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -146,9 +145,6 @@ LOGGING = {
     "loggers": {"django_auth_ldap": {"level": "DEBUG", "handlers": ["console"]}},
 }
 
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-SESSION_COOKIE_AGE = 5 * 60 #
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -169,6 +165,7 @@ REFERRER_POLICY = 'unsafe-url'
 
 STATIC_URL = '/static/'
 
+LOGIN_REDIRECT_URL = '/login'
 HOME_REDIRECT_URL = '/home'
 
 from netifaces import AF_INET
