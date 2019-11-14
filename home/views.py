@@ -12,6 +12,8 @@ def login_user(request):
     user = authenticate(request, username=request.POST.get('username'), password=request.POST.get('password'))
     # handle error cases, inactive users, ...
 
+    print('Test')
+
     if user is not None:
         try:
             login(request, user)
