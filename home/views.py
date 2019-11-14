@@ -64,7 +64,7 @@ def notes(request):
 
     context = {
         'ftpsrv': '10.0.%s.8' % settings.TEAM,
-        'myip': '10.0.%s.6' % settings.TEAM
+        'myip': '127.0.0.1'
     }
     return render(request, 'notes.html', context)
 
