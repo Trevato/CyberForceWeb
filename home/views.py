@@ -11,11 +11,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def login_user(request):
-    print('Login view.')
     user = authenticate(request, username=request.POST.get('username'), password=request.POST.get('password'))
     # handle error cases, inactive users, ...
-
-    print('User authenticated.')
 
     if user is not None:
         try:
@@ -25,8 +22,12 @@ def login_user(request):
         context = {
             'ftpsrv': '10.0.%s.8' % settings.TEAM
         }
+<<<<<<< HEAD
         print('User logged in.')
         return render(request, 'files.html', context)
+=======
+        return render(request, 'home.html', context)
+>>>>>>> parent of 4700f54... Added some print statements for debugging.
     else:
         print('Login Failed')
         #Failed. Send message and log?

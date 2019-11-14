@@ -15,13 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path
 
 import home.views
-
-
-def trigger_error(request):
-    division_by_zero = 1 / 0
 
 urlpatterns = [
     url(r'^admin', admin.site.urls),
@@ -32,6 +27,5 @@ urlpatterns = [
     url(r'^support', home.views.support),
     url(r'^login', home.views.login_user),
     url(r'^logout', home.views.logout_user),
-    path('sentry-debug/', trigger_error),
     url(r'^$', home.views.index),
 ]
