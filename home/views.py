@@ -9,8 +9,11 @@ from django.contrib import messages
 # Create your views here.
 
 def login_user(request):
+    print('Login view.')
     user = authenticate(request, username=request.POST.get('username'), password=request.POST.get('password'))
     # handle error cases, inactive users, ...
+
+    print('User authenticated.')
 
     if user is not None:
         try:
@@ -20,6 +23,7 @@ def login_user(request):
         context = {
             'ftpsrv': '10.0.%s.8' % settings.TEAM
         }
+        print('User logged in.')
         return render(request, 'home.html', context)
     else:
         print('Login Failed')
