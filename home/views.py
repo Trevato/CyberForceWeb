@@ -34,12 +34,12 @@ def logout_user(request):
 
 def support(request):
     if not request.user.is_authenticated:
-        return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
+        return render(request, 'login.html', context)
     return render(request, 'support.html')
 
 def mail(request):
     if not request.user.is_authenticated:
-        return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
+        return render(request, 'login.html', context)
 
     context = {
         'ftpsrv': '10.0.%s.8' % settings.TEAM
@@ -49,7 +49,7 @@ def mail(request):
 
 def hmi(request):
     if not request.user.is_authenticated:
-        return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
+        return render(request, 'login.html', context)
 
     context = {
         'hmi': '10.0.%s.9' % settings.TEAM,
@@ -60,7 +60,7 @@ def hmi(request):
 
 def notes(request):
     if not request.user.is_authenticated:
-        return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
+        return render(request, 'login.html', context)
 
     context = {
         'ftpsrv': '10.0.%s.8' % settings.TEAM,
@@ -71,7 +71,7 @@ def notes(request):
 
 def files(request):
     if not request.user.is_authenticated:
-        return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
+        return render(request, 'login.html', context)
 
     context = {
         'ftpsrv': '10.0.%s.8' % settings.TEAM
@@ -81,7 +81,7 @@ def files(request):
 
 def index(request):
     if not request.user.is_authenticated:
-        return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
+        return render(request, 'login.html', context)
 
     context = {
         'ftpsrv': '10.0.%s.8' % settings.TEAM
