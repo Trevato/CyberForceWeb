@@ -24,7 +24,7 @@ def login_user(request):
             'ftpsrv': '10.0.%s.8' % settings.TEAM
         }
         print('User logged in.')
-        return render(request, 'home.html', context)
+        return render(request, 'files.html', context)
     else:
         print('Login Failed')
         #Failed. Send message and log?
