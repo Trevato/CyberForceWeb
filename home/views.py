@@ -20,7 +20,7 @@ def login_user(request):
         except Exception:
             messages.error(request, 'Login failed.')
         context = {
-            'ftpsrv': '10.0.%s.8' % settings.TEAM
+            'ftpsrv': 'ftp.cybatiworks.com'
         }
         return render(request, 'home.html', context)
     else:
@@ -44,7 +44,7 @@ def mail(request):
         return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
 
     context = {
-        'ftpsrv': '10.0.%s.8' % settings.TEAM
+        'ftpsrv': 'ftp.cybatiworks.com'
     }
     return render(request, 'mail.html', context)
 
@@ -55,7 +55,7 @@ def hmi(request):
 
     context = {
         'hmi': '10.0.%s.9' % settings.TEAM,
-        'ftpsrv': '10.0.%s.8' % settings.TEAM
+        'ftpsrv': 'ftp.cybatiworks.com'
     }
     return render(request, 'hmi.html', context)
 
@@ -65,8 +65,8 @@ def notes(request):
         return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
 
     context = {
-        'ftpsrv': '10.0.%s.8' % settings.TEAM,
-        'myip': '10.0.%s.13' % settings.TEAM
+        'ftpsrv': 'ftp.cybatiworks.com',
+        'myip': '127.0.0.1'
     }
     return render(request, 'notes.html', context)
 
@@ -76,7 +76,7 @@ def files(request):
         return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
 
     context = {
-        'ftpsrv': '10.0.%s.8' % settings.TEAM
+        'ftpsrv': 'ftp.cybatiworks.com'
     }
     return render(request, 'files.html', context)
 
@@ -86,6 +86,6 @@ def index(request):
         return redirect('%s?next=%s' % (settings.LOGIN_REDIRECT_URL, request.path))
 
     context = {
-        'ftpsrv': '10.0.%s.8' % settings.TEAM
+        'ftpsrv': 'ftp.cybatiworks.com'
     }
     return render(request, 'home.html', context)
