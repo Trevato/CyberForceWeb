@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import ldap
 from django_auth_ldap.config import LDAPSearch
-
+import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
 
