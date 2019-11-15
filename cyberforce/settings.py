@@ -14,6 +14,8 @@ import os
 import ldap
 from django_auth_ldap.config import LDAPSearch
 
+from sentry_sdk.integrations.django import DjangoIntegration
+
 
 # LDAP_STRING = "cn=Blueteam2,cn=Users,dc=cybatiworks,dc=com"
 # AUTH_LDAP_BIND_DN = "CN=Users,DC=cybatiworks,DC=com"
@@ -36,6 +38,10 @@ AUTH_LDAP_USER_DN_TEMPLATE = "cn=%(user)s,cn=Users,dc=cybatiworks,dc=com"
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+sentry_sdk.init(
+    dsn="https://3ca3ade80afd4a559897cc163505f082@sentry.io/1820816",
+    integrations=[DjangoIntegration()]
+)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
