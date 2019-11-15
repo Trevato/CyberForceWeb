@@ -66,7 +66,7 @@ def notes(request):
 
     context = {
         'ftpsrv': 'ftp.cybatiworks.com',
-        'myip': '127.0.0.1'
+        'myip': 'cybatiworks.com'
     }
     return render(request, 'notes.html', context)
 
