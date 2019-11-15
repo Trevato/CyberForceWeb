@@ -47,12 +47,12 @@ sentry_sdk.init(
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6n5_y@(ttczn0w6=9n^r*wltqoqt=^!boa!hy=%hvb_s9@rv-+'
+SECRET_KEY = 'k@l4v&doc=a30f#g0+r9*3hhbc^^16qk3rlzlgng%@&((f!r_e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
