@@ -161,6 +161,8 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/login'
 HOME_REDIRECT_URL = '/home'
 
+SESSION_COOKIE_AGE = 30 * 60
+
 from netifaces import AF_INET
 import netifaces as ni
 TEAM = ni.ifaddresses('eth0')[AF_INET][0]['addr'].split('.')[2]
