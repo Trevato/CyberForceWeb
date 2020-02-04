@@ -37,7 +37,7 @@ AUTH_LDAP_SERVER_URI = 'ldap://192.168.10.21'
 # ldap.set_option(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_ALLOW)
 
 AUTH_LDAP_BIND_AS_AUTHENTICATING_USER = True
-AUTH_LDAP_BIND_DN = 'CN=webauthuser,DC=ccdc,DC=com'
+AUTH_LDAP_BIND_DN = 'CN=webauthuser,CN=Users,DC=ccdc,DC=com'
 AUTH_LDAP_BIND_PASSWORD = 'College2020'
 AUTH_LDAP_USER_SEARCH = LDAPSearchUnion(
     LDAPSearch('CN=Users,DC=ccdc,DC=com', ldap.SCOPE_SUBTREE, '(cn=%(user)s)'),
