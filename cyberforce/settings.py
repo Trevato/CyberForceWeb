@@ -31,10 +31,10 @@ AUTHENTICATION_BACKENDS = [
                             'django.contrib.auth.backends.ModelBackend',
                             ]
 
-AUTH_LDAP_SERVER_URI = 'ldaps://192.168.10.21'
+AUTH_LDAP_SERVER_URI = 'ldap://192.168.10.21'
 
-AUTH_LDAP_START_TLS = True
-ldap.set_option(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_ALLOW)
+# AUTH_LDAP_START_TLS = True
+# ldap.set_option(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_ALLOW)
 
 AUTH_LDAP_BIND_AS_AUTHENTICATING_USER = True
 AUTH_LDAP_BIND_DN = 'CN=webauthuser,DC=ccdc,DC=com'
