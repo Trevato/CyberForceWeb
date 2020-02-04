@@ -132,6 +132,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.INFO: 'info',
+    messages.DEBUG: 'warning',
+}
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
