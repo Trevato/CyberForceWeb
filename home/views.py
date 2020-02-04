@@ -19,12 +19,12 @@ def login_user(request):
             login(request, user)
         except Exception:
             messages.error(request, 'Login failed.')
-        return render(request, 'home.html', context)
+        return render(request, 'login.html', context)
     else:
         print('Login Failed')
         #Failed. Send message and log?
 
-    return render(request, 'home.html')
+    return render(request, 'login.html')
 
 def logout_user(request):
     logout(request)
