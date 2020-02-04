@@ -25,8 +25,6 @@ from django.contrib.messages import constants as messages
 #     "CN=Users,DC=cybatiworks,DC=com", ldap.SCOPE_SUBTREE, "(cn=%(user)s)"
 # )
 
-ldap.set_option(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_ALLOW)
-
 AUTHENTICATION_BACKENDS = [
                             'django_auth_ldap.backend.LDAPBackend',
                             'django.contrib.auth.backends.ModelBackend',
@@ -34,7 +32,23 @@ AUTHENTICATION_BACKENDS = [
 
 AUTH_LDAP_SERVER_URI = 'ldaps://192.168.10.21'
 
-AUTH_LDAP_USER_DN_TEMPLATE = "cn=%(user)s,cn=Users,dc=cybatiworks,dc=com"
+AUTH_LDAP_START_TLS = True
+ldap.set_option(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_ALLOW)
+
+AUTH_LDAP_BIND_AS_AUTHENTICATING_USER = True
+AUTH_LDAP_BIND_DN = 'CN=django,OU=Service Accounts,OU=Espo,DC=espo,DC=espocorp,DC=com'
+AUTH_LDAP_BIND_PASSWORD = 'Handsome20'
+AUTH_LDAP_USER_SEARCH = LDAPSearchUnion(
+    LDAPSearch('DC=ccdc,DC=com', ldap.SCOPE_SUBTREE, '(sAMAccountName=%(user)s)'),
+)
+
+
+AUTH_LDAP_FIND_GROUP_PERMS = True
+AUTH_LDAP_CACHE_GROUPS = True
+AUTH_LDAP_GROUP_CACHE_TIMEOUT = 1 #3600
+
+AUTH_LDAP_MIRROR_GROUPS = True
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
