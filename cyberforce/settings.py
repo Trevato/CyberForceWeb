@@ -32,7 +32,7 @@ AUTHENTICATION_BACKENDS = [
                             'django.contrib.auth.backends.ModelBackend',
                             ]
 
-AUTH_LDAP_SERVER_URI = 'ldaps://ldap.cybatiworks.com'
+AUTH_LDAP_SERVER_URI = 'ldaps://192.168.10.21'
 
 AUTH_LDAP_USER_DN_TEMPLATE = "cn=%(user)s,cn=Users,dc=cybatiworks,dc=com"
 
