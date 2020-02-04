@@ -19,15 +19,12 @@ def login_user(request):
             login(request, user)
         except Exception:
             messages.error(request, 'Login failed.')
-        context = {
-            'ftpsrv': 'ftp.cybatiworks.com'
-        }
         return render(request, 'home.html', context)
     else:
         print('Login Failed')
         #Failed. Send message and log?
 
-    return render(request, 'login.html')
+    return render(request, 'home.html')
 
 def logout_user(request):
     logout(request)
