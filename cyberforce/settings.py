@@ -172,7 +172,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-LOGIN_REDIRECT_URL = '/hmi'
+LOGIN_REDIRECT_URL = '/login'
 LOGIN_URL = '/login'
 STATIC_URL = '/static/'
 
