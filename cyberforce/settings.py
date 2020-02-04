@@ -14,6 +14,7 @@ import os
 import ldap
 from django_auth_ldap.config import LDAPSearch
 import sentry_sdk
+from django_auth_ldap.config import LDAPSearch, LDAPSearchUnion
 from sentry_sdk.integrations.django import DjangoIntegration
 from django.contrib.messages import constants as messages
 
