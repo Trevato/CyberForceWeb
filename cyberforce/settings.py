@@ -40,7 +40,7 @@ AUTH_LDAP_BIND_AS_AUTHENTICATING_USER = True
 AUTH_LDAP_BIND_DN = 'CN=webauthuser,DC=ccdc,DC=com'
 AUTH_LDAP_BIND_PASSWORD = 'College2020'
 AUTH_LDAP_USER_SEARCH = LDAPSearchUnion(
-    LDAPSearch('DC=ccdc,DC=com', ldap.SCOPE_SUBTREE, '(user=%(user)s)'),
+    LDAPSearch('DC=ccdc,DC=com', ldap.SCOPE_SUBTREE, '(sAMAccountName=%(user)s)'),
 )
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
